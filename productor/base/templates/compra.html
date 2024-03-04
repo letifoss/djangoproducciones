@@ -1,0 +1,22 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+{% block content %}
+
+<div class="planes">
+  <h2 class="text-center">PLANES DISPONIBLES</h2>
+</div>
+
+<div class="plans justify-content-center"> 
+  {% for p in planes %}
+    <div class="p-3 m-5 couponcompra" style="background-color: rgba(0, 0, 0, 0.9);">
+      <div class="container d-flex flex-column align-items-center">
+        <div class="m-1"><h3>{{ p.title }}</h3></div>
+        <div class="m-1 text-center"><h5>{{ p.info }}</h5></div>
+        <div class="m-1"><h4>{{ p.price }}</h4></div>
+        <div class="mt-4 text-center"><button><a href="/compra">COMPRAR</a></button></div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

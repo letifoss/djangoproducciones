@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="contact">
+<h2 class="text-center">CONTACTO</h2>
+<div class="form row">
+<form method="POST" action="" class="col-6">
+    {% csrf_token %}
+    <div class="form-group my-3">
+      <label> Nombre y apellido </label>
+      <input type="text" class="form-control" name="nombre" placeholder="Tu nombre" >
+    </div>
+    <div class="form-group my-3">
+      <label> Email </label>
+      <input class="form-control" type="email" name="email" placeholder="Tu e-mail" >
+    </div>
+    <div>
+      <label>Mensaje</label>
+      <textarea class="form-control" rows="5" name="mensaje" placeholder="Escribe tu mensaje aquí"></textarea>
+    </div>
+    <button class="btn btn-light mt-3 mb-5" type="submit"> Enviar mensaje</button>
+</form>
+</div>
+</div>
+
+{% endblock %}

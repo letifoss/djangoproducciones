@@ -1,0 +1,331 @@
+.body{
+  max-width: 100%;
+}
+.nav{
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.nav a{
+  color: #fffffe;
+  background-color: rgb(0, 0, 0);
+}
+
+.nav a:hover{
+  background-color: #383838;
+}
+
+.log{
+  margin-left: 700px;
+}
+
+.navbar-toggler-icon {
+  background-color: transparent; /* Asegura que el fondo sea transparente */
+  border: 1px solid #fff; /* Añade un borde blanco */
+}
+
+/* .fondo{
+  position: relative;
+}  */
+
+.padre{
+ /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+.contenedor img{
+  filter: brightness(0.3);
+  display: none;
+}
+
+.encima{
+ /* position: absolute; */
+  display: flex !important;
+  justify-content: center;
+  margin-top:100px;
+
+}
+
+.presentacion{
+/* position: absolute; */
+
+}
+
+
+.presentacion .coupon{
+  width: 140vh ;
+}
+
+.presentacion p{
+    animation-duration: 2s;
+    animation-name: slidein;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+  .planes{
+    color: white;
+  }
+
+.planes p{
+  color: #fffffe;
+}
+.planes h2{
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 80%;
+    width: 200%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.coupon {
+    border: 2px solid #000000; /* Dotted border */
+    border-radius: 15px; /* Rounded border */
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-self: center;
+    width: 45vh;
+    height: 40vh;
+    color: #fffffe;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 0 0 15px rgb(29, 29, 29)
+   
+  }
+
+  .couponcompra {
+    border: 3px solid #000000;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-self: center;
+    width: 45vh;
+    height: 60vh;
+    color: #fffffe;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 0 0 20px rgb(29, 29, 29);
+    min-height: 100vh;
+    margin: 10px; /* Agregamos un margen entre los elementos */
+  }
+  
+.presentacioncompra {
+  margin-bottom: 20px;
+  margin-top: 100px;
+  min-height: 80vh;
+  background-color: #000000;
+  border:none;
+
+  
+}
+
+
+.presentacioncompra .coupon {
+  width: 180vh;
+}
+
+.presentacioncompra .coupon {
+  width: 120vh;
+}
+
+
+  .container {
+     width: 80%;
+     margin-top: 4vh;
+    
+  }
+
+  .container button{
+    border-radius: 10%;
+    background-color: #383838;
+  }
+
+  .container button a{
+    color: #fffffe;
+    font-weight: bold;
+  }
+  
+  .container button:hover{
+    background-color: #000000;
+  }
+
+  .container button a:hover{
+    color: #cccccc;
+
+
+}
+  .container a{
+    color: #ebebeb;
+}
+
+  .container a:hover{
+        color: rgb(37, 37, 37);
+        text-decoration: none;
+  }
+
+  .padre img{
+    filter: brightness(0.3);
+    display: none;
+  }
+  
+
+.header{
+      height: 20px;
+}
+
+.contact {
+  color: #ffffff;
+}
+
+.contact h2{
+  animation-duration: 2s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 80%;
+    width: 200%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.form{
+  background-color: rgb(26, 26, 26);
+  width: auto;
+  display: flex;
+  justify-content: center;
+  color: #fffffe;
+  margin-top: 20px;
+  
+}
+
+.perfil{
+  color: #fffffe;
+  background:#0f0f0f;
+  height: 80vh;
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.trabajos{
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+}
+.trabajo{
+  width: 300px;
+  height: 300px;
+  color: white;
+  background-color: #000000;
+  text-align: center;
+  
+}
+
+.plans{
+  display: flex;
+}
+.footer{
+    height: 30vh;
+    background-color: black;
+}
+
+
+@media screen and (max-width: 750px){
+
+  .padre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedor img{
+    display: none;
+  }
+
+  .contenedor .encima{
+    margin-top:90%;
+  }
+
+  .presentacion .coupon{
+    width: 70vh ;
+  }
+
+  .plans{
+    display: flex;
+    flex-direction: column;
+  }
+  .encima{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .trabajo{
+    margin-top: 20px;
+  }
+  .footer{
+    display: none;
+  }
+
+  .contendor{
+    display: flex;
+    flex-direction: column;
+
+  }
+    
+
+.trabajos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.perfil{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.coupon{
+  margin-top: 10px;
+}
+
+}
+
+
+@media screen and (max-width: 1300px){
+    .log{
+      margin-left: 200px;
+    }
+
+    .trabajo{
+      margin:40px;
+    }
+
+}

@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="contact">
+    <h2 class="text-center">Iniciar sesión</h2>
+    {% if messages %}
+{% for message in messages %}
+  <div class="text-center alert alert-{{ message.tags }}" role="alert">
+    {{ message }}
+  </div>
+  
+{% endfor %}
+{% endif %}
+    <div class="form row">
+    <form method="POST" action="" class="col-4">
+        {% csrf_token %}
+        <div class="form-group my-3">
+          <label> Correo electrónico </label>
+          <input type="text" class="form-control" name="username" placeholder="Correo electrónico" >
+        </div>
+        <div class="form-group my-3">
+          <label> Contraseña </label>
+          <input class="form-control" type="password" name="password" placeholder="Contraseña" >
+        </div>
+        <div class="d-flex">
+        <button class="btn btn-light mt-3 mb-5" type="submit"> Iniciar sesión</button>
+        <a class="mt-4 ml-4" href="/registro">Crear mi cuenta</a>
+      </div>
+    </form>
+    </div>
+    </div>
+
+    {% endblock %}

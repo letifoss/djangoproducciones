@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="contact">
+  {% if messages %}
+{% for message in messages %}
+  <div class="text-center alert alert-{{ message.tags }}" role="alert">
+    {{ message }}
+  </div>
+  
+{% endfor %}
+{% endif %}
+    <h5 class="text-center mt-5">Tu opinión nos importa</h5>
+    <div class="form row">
+    <form method="POST" action="" class="col-6">
+        {% csrf_token %}
+        {% if reseña is not None %}
+          <input type="hidden" value="{{reseña.id}}" name="id">
+        {% endif %}
+
+        <div class="form-group my-3">
+          <label> Nombre y apellido </label>
+          <input type="text" class="form-control" name="first_name" placeholder="Tu nombre" 
+          {% if reseña is not None %}
+            value="{{reseña.first_name}}"
+          {% endif %}
+          >
+        </div>
+        <div>
+          <label>Comentarios</label>
+          <textarea class="form-control" rows="5" name="comment">{% if reseña is not None %}{{reseña.comment}}{% endif %}</textarea>
+        </div>
+        {% if request.user.is_authenticated %} 
+        <button class="btn btn-light mt-3 mb-5" type="submit">Enviar opinión </button>
+        {% endif %}
+    </form>
+    </div>
+    </div>
+    
+{% endblock %}

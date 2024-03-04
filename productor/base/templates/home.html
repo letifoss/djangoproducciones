@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+  <div class="text-center alert alert-{{ message.tags }}" role="alert">
+    {{ message }}
+  </div>
+  
+{% endfor %}
+{% endif %}
+
+
+<div class="padre">
+  {% comment %}
+<img class="w-100 h-75" src="{% static 'images/Fosse-22.jpg' %}" alt="Third slide">
+ {% endcomment %}
+<div class="presentacion">
+  <div class="coupon m-3">
+    <div class="container">
+      <a href=""><h2 class="text-center"><b>PRODUCCIONES</h2></a>
+      <p class="mt-3 text-center">Ponte en contacto para tener tu propia producción!</p>
+    </div>
+  </div>
+</div>
+<div class="row encima ">
+<div class="coupon m-3">
+    <div class="container">
+      <a href="/compra"><h2 class="text-center"><b>VER PLANES</b></h2></a>
+      <p class="mt-3 text-center">Ver todos los planes disponibles</p>
+    </div>
+</div>
+<div class="coupon m-3">
+    <div class="container">
+      <a href="/trabajos"><h2 class="text-center"><b>TRABAJOS</b></h2></a>
+      <p class="mt-3 text-center">Ver todos</p>
+    </div>
+</div>
+<div class="coupon m-3">
+  <div class="container">
+    <a href=""><h2 class="text-center"><b>MÁS INFO</b></h2></a>
+    <p class="mt-3 text-center">Obten más información</p>
+    </div>
+   </div>
+    
+  <div class="coupon m-3">
+        <div class="container">
+          <a href="/contacto"><h2 class="text-center"><b>CONTACTO</b></h2></a>
+          <p class="mt-3 text-center">Click aquí para contactarte</p>
+        </div>
+    </div>
+
+
+
+      <div class="presentacioncompra d-flex flex-column align-items-center shadow-none text-white p-3" >
+        <div>
+          <h2>OPINIONES</h2>
+        </div>
+        <div class="row d-flex justify-content-center min-vh-100">
+          {% for p in reseña %}
+            <div class="col-md-4 mb-3 "> 
+              <div class="p-4 border border-white">
+                <div><h5>{{ p.first_name }}</h5></div>
+                <div class="mt-1"><h6>{{ p.comment }}</h6></div>
+              </div>
+              {% if request.user.is_authenticated and request.user == p.user %} 
+              <button class="btn btn-light mt-3 mb-5" type="submit"><a href="/comment/{{p.id}}">Editar mi comentario</a></button>
+              {% endif %}
+              {% for c in p.answer_set.all %}
+                <p class="mt-2">{{c.user.username}} comentó: {{c.text}}</p>
+              {% endfor %}
+              {% if request.user.is_authenticated %} 
+              <form method="POST" action="/answer/">
+                  {% csrf_token %}
+                <input type="hidden" value="{{p.id}}" name="comment">
+                <div class="form-group my-3">
+                  <textarea class="form-control" name="text" cols="30" rows="2" placeholder="Agrega un comentario"></textarea>
+                </div>
+                <button class="btn btn-light mt-3 mb-5" type="submit">Comentar</button>
+              </form>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+        </div>
+        <div>
+          {% if request.user.is_authenticated %} 
+          <a href="/reseña"><button class="btn btn-light">Enviar reseña</button></a>
+          {% endif %}
+        </div>
+      </div>
+      
+ </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+{% endblock %}
